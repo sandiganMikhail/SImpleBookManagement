@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SImpleBookManagement.Models.BookReview>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@if (User.IsInRole("Admin"))
+{
+     <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReviewDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Patron)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patron.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Id)
+            </td>
+            <td>
+                @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <soan> | </soan>
+ 
+                    }
+               
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                @if (User.IsInRole("Admin"))
+                    {
+                        <span> | </span>  <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
