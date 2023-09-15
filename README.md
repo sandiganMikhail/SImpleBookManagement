@@ -15,7 +15,7 @@ LibraManage is a powerful library management application that simplifies library
 ### 2. Book Management
    - Add, edit, and delete books in the library catalog.
    - Keep track of book details, including title, author, ISBN, genre, and availability status.
-   - Bulk import books for efficient cataloging.
+  
 
 ### 3. Patron Management
    - Manage patron accounts, including registration, updates, and suspensions.
@@ -29,13 +29,6 @@ LibraManage is a powerful library management application that simplifies library
    - Track books currently borrowed by patrons.
    - Extend due dates for borrowed books.
    - Efficiently manage book returns and check-ins.
-
-### 6. Reporting and Analytics
-   - Generate detailed reports on library usage, book circulation, overdue books, and more.
-   - Gain valuable insights to optimize library operations.
-
-### 7. Configuration Settings
-   - Configure system settings, including database connections, email notifications, and fine management rules.
    
 ## Patron Features
 
@@ -61,8 +54,6 @@ LibraManage is a powerful library management application that simplifies library
 ### 6. Leaving Reviews and Ratings
    - Leave reviews and ratings for books read.
    - Contribute to book recommendations and overall ratings.
-
-
 
 ## Feedback and Support
 
