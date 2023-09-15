@@ -23,11 +23,17 @@ namespace SImpleBookManagement.Controllers
         }
 
         // GET: Books
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Book != null ? 
-                          View(await _context.Book.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Book'  is null.");
+            var books = from m in _context.Book
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                books = books.Where(s => s.Title!.Contains(searchString));
+            }
+
+            return View(await books.OrderByDescending(b => b.Id).ToListAsync());
         }
 
         // GET: Books/Details/5
